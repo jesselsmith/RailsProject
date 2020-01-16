@@ -1,20 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/new'
-  get 'categories/show'
-  get 'categories/index'
-  get 'categories/edit'
-  get 'designers/new'
-  get 'designers/show'
-  get 'designers/index'
-  get 'designers/edit'
-  get 'artists/new'
-  get 'artists/index'
-  get 'artists/show'
-  get 'artists/edit'
-  get 'publishers/new'
-  get 'publishers/index'
-  get 'publishers/show'
-  get 'publishers/edit'
   root 'home#index'
 
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
