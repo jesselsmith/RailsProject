@@ -10,84 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_082516) do
+ActiveRecord::Schema.define(version: 2020_01_16_203930) do
 
-  create_table "characters", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
-    t.integer "armor_class"
-    t.integer "hit_points"
-    t.integer "str"
-    t.integer "dex"
-    t.integer "con"
-    t.integer "int"
-    t.integer "wis"
-    t.integer "cha"
-    t.string "save_proficiencies"
-    t.string "skill_proficiencies"
-    t.text "special_abilities"
-    t.text "actions"
-    t.string "alignment"
-    t.string "hit_dice"
-    t.string "size"
-    t.string "type"
-    t.string "subtype"
-    t.string "languages"
-    t.string "senses"
-    t.integer "walk_speed"
-    t.integer "climb_speed"
-    t.integer "swim_speed"
-    t.integer "fly_speed"
-    t.integer "burrow_speed"
-    t.string "challenge_rating"
+  create_table "board_game_board_game_makers", force: :cascade do |t|
+    t.integer "board_game_id", null: false
+    t.integer "board_game_maker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "encounters", force: :cascade do |t|
-    t.string "location"
-    t.text "environmental_effects"
-    t.string "map_url"
-    t.string "difficulty"
+  create_table "board_game_categories", force: :cascade do |t|
+    t.integer "board_game_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "npcs", force: :cascade do |t|
-    t.string "name"
-    t.string "attitude"
-    t.text "goals"
-    t.string "image_url"
-    t.integer "armor_class"
-    t.integer "hit_points"
-    t.integer "str"
-    t.integer "dex"
-    t.integer "con"
-    t.integer "int"
-    t.integer "wis"
-    t.integer "cha"
-    t.string "save_proficiencies"
-    t.string "skill_proficiencies"
-    t.text "special_abilities"
-    t.text "actions"
-    t.string "alignment"
-    t.string "hit_dice"
-    t.string "size"
-    t.string "type"
-    t.string "subtype"
-    t.string "languages"
-    t.string "senses"
-    t.integer "walk_speed"
-    t.integer "climb_speed"
-    t.integer "swim_speed"
-    t.integer "fly_speed"
-    t.integer "burrow_speed"
-    t.string "challenge_rating"
+  create_table "board_game_makers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "players", force: :cascade do |t|
+  create_table "board_games", force: :cascade do |t|
+    t.integer "min_players", null: false
+    t.integer "max_players", null: false
+    t.string "amazon_url"
+    t.integer "min_playing_time", null: false
+    t.integer "max_playing_time", null: false
+    t.string "age_range", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating", null: false
+    t.text "review_text"
+    t.integer "user_id", null: false
+    t.integer "board_game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
