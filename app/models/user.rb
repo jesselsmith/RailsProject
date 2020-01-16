@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :reviews
+  has_many :board_games, through: :reviews
+
   # Include default devise modules. Others available are:
   #  :timeoutable
   devise :database_authenticatable, :registerable,

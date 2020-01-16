@@ -1,0 +1,3 @@
+class BoardGameMaker < ApplicationRecord
+  
+end
