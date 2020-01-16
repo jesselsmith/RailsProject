@@ -1,20 +1,4 @@
 Rails.application.routes.draw do
-  get 'pubisher/index'
-  get 'pubisher/new'
-  get 'pubisher/show'
-  get 'pubisher/edit'
-  get 'designer/index'
-  get 'designer/new'
-  get 'designer/show'
-  get 'designer/edit'
-  get 'artist/index'
-  get 'artist/new'
-  get 'artist/show'
-  get 'artist/edit'
-  get 'category/index'
-  get 'category/new'
-  get 'category/show'
-  get 'category/edit'
   root 'home#index'
 
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
@@ -34,5 +18,31 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:show]
 
+  resources :categories do
+    resources :board_games, only: [:index]
+    resources :publishers, only: [:index]
+    resources :designers, only: [:index]
+  end
+
+  resources :artists do
+    resources :board_games, only: [:index]
+    resources :publishers, only: [:index]
+    resources :designers, only: [:index]
+    resources :reviews, only: [:index]
+  end
+
+  resources :designers do
+    resources :board_games, only: [:index]
+    resources :publishers, only: [:index]
+    resources :artists, only: [:index]
+    resources :reviews, only: [:index]
+  end
+
+  resources :publishers do
+    resources :board_games, only: [:index]
+    resources :artists, only: [:index]
+    resources :designers, only: [:index]
+    resources :reviews, only: [:index]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
