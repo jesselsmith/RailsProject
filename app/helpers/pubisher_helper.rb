@@ -1,0 +1,2 @@
+module PubisherHelper
+end
