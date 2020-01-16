@@ -10,7 +10,87 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_033300) do
+ActiveRecord::Schema.define(version: 2020_01_16_082516) do
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.integer "armor_class"
+    t.integer "hit_points"
+    t.integer "str"
+    t.integer "dex"
+    t.integer "con"
+    t.integer "int"
+    t.integer "wis"
+    t.integer "cha"
+    t.string "save_proficiencies"
+    t.string "skill_proficiencies"
+    t.text "special_abilities"
+    t.text "actions"
+    t.string "alignment"
+    t.string "hit_dice"
+    t.string "size"
+    t.string "type"
+    t.string "subtype"
+    t.string "languages"
+    t.string "senses"
+    t.integer "walk_speed"
+    t.integer "climb_speed"
+    t.integer "swim_speed"
+    t.integer "fly_speed"
+    t.integer "burrow_speed"
+    t.string "challenge_rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "encounters", force: :cascade do |t|
+    t.string "location"
+    t.text "environmental_effects"
+    t.string "map_url"
+    t.string "difficulty"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "npcs", force: :cascade do |t|
+    t.string "name"
+    t.string "attitude"
+    t.text "goals"
+    t.string "image_url"
+    t.integer "armor_class"
+    t.integer "hit_points"
+    t.integer "str"
+    t.integer "dex"
+    t.integer "con"
+    t.integer "int"
+    t.integer "wis"
+    t.integer "cha"
+    t.string "save_proficiencies"
+    t.string "skill_proficiencies"
+    t.text "special_abilities"
+    t.text "actions"
+    t.string "alignment"
+    t.string "hit_dice"
+    t.string "size"
+    t.string "type"
+    t.string "subtype"
+    t.string "languages"
+    t.string "senses"
+    t.integer "walk_speed"
+    t.integer "climb_speed"
+    t.integer "swim_speed"
+    t.integer "fly_speed"
+    t.integer "burrow_speed"
+    t.string "challenge_rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +112,8 @@ ActiveRecord::Schema.define(version: 2020_01_16_033300) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
