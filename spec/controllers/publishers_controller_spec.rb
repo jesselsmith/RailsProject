@@ -4,6 +4,7 @@ RSpec.describe PublishersController, type: :controller do
 
   describe "GET #new" do
     it "returns http success" do
+      binding.pry
       get :new
       expect(response).to have_http_status(:success)
     end
