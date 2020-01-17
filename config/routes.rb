@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   end
 
   resources :user do
-    resources :reviews
+    resources :reviews, only: [:index]
   end
 
   resources :board_games do
-    resources :reviews, only: [:index]
+    resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :reviews, only: [:show]
