@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_234958) do
-
-  create_table "board_game_board_game_makers", force: :cascade do |t|
-    t.integer "board_game_id", null: false
-    t.integer "board_game_maker_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2020_01_16_194838) do
 
   create_table "board_game_categories", force: :cascade do |t|
     t.integer "board_game_id", null: false
@@ -42,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_01_16_234958) do
     t.string "age_range", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
   end
 
   create_table "categories", force: :cascade do |t|

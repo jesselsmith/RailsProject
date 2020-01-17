@@ -2,7 +2,8 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @reviews = Review.all
+    @nested_resource = get_nested_resource
+    @reviews = @nested_resource.reviews
   end
 
   def show
@@ -47,5 +48,19 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:user_id, :board_game_id, :rating,
                                    :review_text)
+  end
+
+  def get_nested_resource
+    if params[:board_game_id]
+      find(BoardGame)
+    elsif params[:user_id]
+      find(User)
+    elsif params[:designer_id]
+      find(Designer)
+    elsif params[:publisher_id]
+      find(Publisher)
+    elsif params[:artist_id]
+      find(Artist)
+    end
   end
 end
