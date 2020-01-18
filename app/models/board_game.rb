@@ -10,5 +10,5 @@ class BoardGame < ApplicationRecord
   has_many :board_game_publishers
   has_many :publishers, through: :board_game_publishers
 
-  include Concerns::RatingAverageable
+  include RatingAverageable
 end
