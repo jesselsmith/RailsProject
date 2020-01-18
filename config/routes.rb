@@ -20,28 +20,20 @@ Rails.application.routes.draw do
 
   resources :categories do
     resources :board_games, only: [:index]
-    resources :publishers, only: [:index]
-    resources :designers, only: [:index]
   end
 
   resources :artists do
     resources :board_games, only: [:index]
-    resources :publishers, only: [:index]
-    resources :designers, only: [:index]
     resources :reviews, only: [:index]
   end
 
   resources :designers do
     resources :board_games, only: [:index]
-    resources :publishers, only: [:index]
-    resources :artists, only: [:index]
     resources :reviews, only: [:index]
   end
 
   resources :publishers do
     resources :board_games, only: [:index]
-    resources :artists, only: [:index]
-    resources :designers, only: [:index]
     resources :reviews, only: [:index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
