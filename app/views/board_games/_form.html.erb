@@ -1,0 +1,18 @@
+<%= form_for @board_game do |f| %>
+  <div class="title field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="checkboxes field">
+  <%= f.label :designers %>
+    <ul>
+      <%= f.collection_check_boxes :designers, Designer.all, :id, :name do |b| %>
+        <li>
+          <%= b.label %>
+          <%= b.check_box %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%= f.submit %>
+<% end %>
