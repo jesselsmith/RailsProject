@@ -3,7 +3,12 @@ class BoardGamesController < ApplicationController
   before_action :set_board_game, only: [:show, :edit, :update, :destroy]
 
   def index
-    @board_games = BoardGame.all
+    @nested_resource = get_nested_resource
+    @board_games = if @nested_resource
+                     @nested_resource.board_games
+                   else
+                     BoardGame.all
+                   end
   end
 
   def show
