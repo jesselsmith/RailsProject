@@ -71,7 +71,93 @@ DATA = {
     [7, '', 5, 8],
     [7, '', 5, 9],
     [8, '', 5, 10]
+  ],
+  categories_keys: ['name'],
+  categories: [
+    ['Strategy'],
+    ['Party'],
+    ['Trivia'],
+    ['Puzzle'],
+    ['Deception'],
+    ['Deck Building'],
+    ['Card'],
+    ['Dice'],
+    ['Miniatures'],
+    ['Political'],
+    ['Horror'],
+    ['Fantasy'],
+    ['Historical'],
+    ['Sci-Fi'],
+    ['Mature/Adult'],
+    ['Cooperative'],
+    ['Competitive'],
+    ['Sports'],
+    ['Electronic'],
+    ['Deduction'],
+    ['Role Playing']
+  ],
+  artists_keys: ['name'],
+  artists: [
+    ['Volkan Baga'],
+    ['Tanja Donner'],
+    ['Pete Fenlon'],
+    ['Jason Hawkins'],
+    ['Michaela Kienle'],
+    ['Harald Lieske'],
+    ['Michael Menzel'],
+    ['Marion Pott'],
+    ['Matt Schwabel'],
+    ['Franz Vohwinkel'],
+    ['Stephen Graham Walsh'],
+    ['Doris Matthäus'],
+    ['Anne Pätzke'],
+    ['Chris Quilliams'],
+    ['Klaus-Jürgen Wrede'],
+    ['Josh Cappel'],
+    ['Christian Hanisch'],
+    ['Régis Moulun'],
+    ['Chris Quilliams'],
+    ['Tom Thiel'],
+    ['Antoine Bauza'],
+    ['Miguel Coimbra'],
+    ['Matthias Catrein'],
+    ['Julien Delval'],
+    ['Tomasz Jedruszek'],
+    ['Ryan Laukat'],
+    ['Marcel-André Casasola Merkle'],
+    ['Claus Stephan'],
+    ['Christof Tisch'],
+    ['Cyrille Daujean'],
+    ['Julien Delval'],
+    ['Klemens Franz'], 
+    ['Stéphane Gantiez'],
+    ['Tomáš Kučerovský'],
+    ['Filip Murmak']
+  ],
+  designers_keys: ['name'],
+  designers: [
+    ['Klaus Teuber'],
+    ['Klaus-Jürgen Wrede'],
+    ['Matt Leacock'],
+    ['Antoine Bauza'],
+    ['Donald X. Vaccarino'],
+    ['Alan R. Moon'],
+    ['Uwe Rosenberg'],
+    ['Andreas Seyfarth'],
+    ['Vlaada Chvátil'],
+    ['Philippe Keyaerts']
+  ],
+  publishers_keys: ['name'],
+  publishers: [
+    ['KOSMOS'],
+    ['Z-Man Games'],
+    ['Rio Grande Games'],
+    ['Repos Production'],
+    ['Days of Wonder'],
+    ['Lookout Games'],
+    ['Czech Games Edition']
   ]
+
 }
 
 def add_review_seeds
@@ -82,7 +168,36 @@ def add_review_seeds
   end
 end
 
-def maker(symbol, class_object)
+def add_artists_to_games
+  [
+    (1..11).to_a, (12..15).to_a, (16..20).to_a, [21, 22],
+    [(23..29).to_a, 6, 7].flatten, [30, 31], 32, [6, 10],
+    [33, 34, 35], [22, 30]
+  ].each.with_index(1) do |array, i|
+    BoardGame.find(i).artists << Artist.find(array)
+  end
+end
+
+def add_designers_to_games
+  10.times do |i|
+    BoardGame.find(i + 1).designers << Designer.find(i+36)
+  end
+end
+
+def add_games_to_publishers
+  [1, [2, 5], [3, 8], 4, [6, 10], 7, 9].each.with_index(46) do |array, i|
+    Publisher.find(i).board_games << BoardGame.find(array)
+  end
+end
+
+def add_game_makers_to_games
+  add_artists_to_games
+  add_designers_to_games
+  add_games_to_publishers
+end
+
+def maker(class_object)
+  symbol = class_object.to_s.pluralize.underscore.to_sym
   DATA[symbol].each do |object_attributes|
     new_object = class_object.new
     object_attributes.each_with_index do |attribute, i|
@@ -94,9 +209,14 @@ end
 
 def make_all_seeds
   add_review_seeds
-  maker(:board_games, BoardGame)
-  maker(:users, User)
-  maker(:reviews, Review)
+  maker(BoardGame)
+  maker(User)
+  maker(Review)
+  maker(Category)
+  maker(Artist)
+  maker(Designer)
+  maker(Publisher)
+  add_game_makers_to_games
 end
 
 make_all_seeds

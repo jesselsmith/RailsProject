@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_194838) do
+ActiveRecord::Schema.define(version: 2020_01_17_232233) do
+
+  create_table "board_game_artists", force: :cascade do |t|
+    t.integer "board_game_id"
+    t.integer "artist_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "board_game_categories", force: :cascade do |t|
     t.integer "board_game_id", null: false
@@ -19,9 +26,23 @@ ActiveRecord::Schema.define(version: 2020_01_16_194838) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "board_game_designers", force: :cascade do |t|
+    t.integer "board_game_id"
+    t.integer "designer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "board_game_makers", force: :cascade do |t|
     t.string "name", null: false
     t.string "type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "board_game_publishers", force: :cascade do |t|
+    t.integer "board_game_id"
+    t.integer "publisher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_01_16_194838) do
     t.string "age_range", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
   end
 
   create_table "categories", force: :cascade do |t|
