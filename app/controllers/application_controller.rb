@@ -12,4 +12,24 @@ class ApplicationController < ActionController::Base
       class_object.find_by(id: params[:id])
     end
   end
+
+  def set_board_game
+    @board_game = find(BoardGame)
+  end
+
+  def get_nested_resource
+    if params[:board_game_id]
+      find(BoardGame)
+    elsif params[:user_id]
+      find(User)
+    elsif params[:category_id]
+      find(Category)
+    elsif params[:designer_id]
+      find(Designer)
+    elsif params[:publisher_id]
+      find(Publisher)
+    elsif params[:artist_id]
+      find(Artist)
+    end
+  end
 end

@@ -1,12 +1,12 @@
 class BoardGamesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_board_game, only: [:show, :edit, :update, :destroy]
 
   def index
     @board_games = BoardGame.all
   end
 
   def show
-    @board_game = find(BoardGame)
   end
 
   def new
@@ -23,11 +23,9 @@ class BoardGamesController < ApplicationController
   end
 
   def edit
-    @board_game = find(BoardGame)
   end
 
   def update
-    @board_game = find(BoardGame)
     @board_game.update(board_game_params)
     if @board_game.save
       redirect_to @board_game
@@ -37,7 +35,6 @@ class BoardGamesController < ApplicationController
   end
 
   def destroy
-    @board_game = find(BoardGame)
     @board_game.destroy
     redirect_to root_path
   end
