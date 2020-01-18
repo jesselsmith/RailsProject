@@ -9,4 +9,6 @@ class BoardGame < ApplicationRecord
   has_many :designers, through: :board_game_designers
   has_many :board_game_publishers
   has_many :publishers, through: :board_game_publishers
+
+  include Concerns::RatingAverageable
 end

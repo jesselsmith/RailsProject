@@ -180,7 +180,7 @@ end
 
 def add_designers_to_games
   10.times do |i|
-    BoardGame.find(i + 1).designers << Designer.find(i+36)
+    BoardGame.find(i + 1).designers << Designer.find(i + 36)
   end
 end
 
