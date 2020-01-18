@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def index
     @nested_resource = get_nested_resource
@@ -7,28 +8,29 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = find(Review)
   end
 
   def new
+    @board_game = find(BoardGame)
     @review = Review.new
   end
 
   def create
-    @review = Review.new(review_params)
+    @board_game = find(BoardGame)
+    @review = BoardGame.reviews.build(review_params)
+    @review.user = current_user
     if @review.save
       redirect_to @review
     else
-      redirect_to new_review_path
+      render :new
     end
   end
 
   def edit
-    @review = find(Review)
+    @board_game 
   end
 
   def update
-    @review = find(Review)
     @review.update(review_params)
     if @review.save
       redirect_to @review
@@ -38,12 +40,15 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = find(Review)
     @review.destroy
     redirect_to root_path
   end
 
   private
+
+  def set_review
+    @review = find(Review)
+  end
 
   def review_params
     params.require(:review).permit(:user_id, :board_game_id, :rating,
