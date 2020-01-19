@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/index'
   root 'home#index'
 
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'devise/registrations#new'
   end
 
-  resources :user do
+  resources :users, only: [:index, :show] do
     resources :reviews, only: [:index]
   end
 
