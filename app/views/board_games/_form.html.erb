@@ -14,5 +14,49 @@
       <% end %>
     </ul>
   </div>
-  <%= f.submit %>
+  <div class="new-designer-link">
+    <%= link_to "Add New Designer", new_designer_path %>
+  </div>
+  <div class="checkboxes field">
+  <%= f.label :publishers %>
+    <ul>
+      <%= f.collection_check_boxes :publishers, Publisher.all, :id, :name do |b| %>
+        <li>
+          <%= b.label %>
+          <%= b.check_box %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="new-publisher-link">
+    <%= link_to "Add New Publisher", new_publisher_path %>
+  </div>
+  <div class="checkboxes field">
+  <%= f.label :artists %>
+    <ul>
+      <%= f.collection_check_boxes :artists, Artist.all, :id, :name do |b| %>
+        <li>
+          <%= b.label %>
+          <%= b.check_box %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="new-artist-link">
+    <%= link_to "Add New Artist", new_artist_path %>
+  </div>
+  <div class="checkboxes field">
+  <%= f.label :categories %>
+    <ul>
+      <%= f.collection_check_boxes :categories, Category.all, :id, :name do |b| %>
+        <li>
+          <%= b.label %>
+          <%= b.check_box %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="new-category-link">
+    <%= link_to "Add New Category", new_category_path %>
+  </div>
 <% end %>
