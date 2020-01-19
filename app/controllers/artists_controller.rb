@@ -7,11 +7,11 @@ class ArtistsController < ApplicationController
   end
 
   def new
-    @artist = artist.new
+    @board_game_maker = Artist.new
   end
 
   def create
-    @artist = artist.new(artist_params)
+    @artist = Artist.new(artist_params)
     if @artist.save
       redirect_to @artist
     else

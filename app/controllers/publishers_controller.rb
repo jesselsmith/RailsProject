@@ -7,11 +7,11 @@ class PublishersController < ApplicationController
   end
 
   def new
-    @publisher = publisher.new
+    @board_game_maker = Publisher.new
   end
 
   def create
-    @publisher = publisher.new(publisher_params)
+    @publisher = Publisher.new(publisher_params)
     if @publisher.save
       redirect_to @publisher
     else

@@ -7,11 +7,12 @@ class DesignersController < ApplicationController
   end
 
   def new
-    @designer = designer.new
+    @board_game_maker = Designer.new
   end
 
   def create
-    @designer = designer.new(designer_params)
+    @designer = Designer.new(designer_params)
+    binding.pry
     if @designer.save
       redirect_to @designer
     else
