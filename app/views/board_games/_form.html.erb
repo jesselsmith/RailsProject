@@ -3,6 +3,17 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+  <div class="num_players field">
+    <%= f.label :min_players "Minimum Number of Players: " %>
+    <%= f.number_field :min_players %>
+    <%= f.label :max_players "Maximum Number of Players: " %>
+    <%= f.number_field :max_players %>
+  </div>
+  <div class="playing_time field">
+    <%= f.label :min_playing_time "Average Playing Time: " %>
+    <%= f.number_field :min_playing_time %> -
+    <%= f.number_field :max_playing_time %>
+  </div>
   <div class="checkboxes field">
   <%= f.label :designers %>
     <ul>
@@ -59,4 +70,5 @@
   <div class="new-category-link">
     <%= link_to "Add New Category", new_category_path %>
   </div>
+  
 <% end %>
