@@ -4,15 +4,19 @@
     <%= f.text_field :title %>
   </div>
   <div class="num_players field">
-    <%= f.label :min_players "Minimum Number of Players: " %>
+    <%= f.label :min_players, "Minimum Players: " %>
     <%= f.number_field :min_players %>
-    <%= f.label :max_players "Maximum Number of Players: " %>
+    <%= f.label :max_players, "Maximum Players: " %>
     <%= f.number_field :max_players %>
   </div>
   <div class="playing_time field">
-    <%= f.label :min_playing_time "Average Playing Time: " %>
+    <%= f.label :min_playing_time, "Average Playing Time: " %>
     <%= f.number_field :min_playing_time %> -
-    <%= f.number_field :max_playing_time %>
+    <%= f.number_field :max_playing_time %> minutes
+  </div>
+  <div class="age_range field">
+    <%= f.label :age_range, "Recommended Age Range (eg. '8+'): " %>
+    <%= f.text_field :age_range %>
   </div>
   <div class="checkboxes field">
   <%= f.label :designers %>
@@ -23,10 +27,8 @@
           <%= b.check_box %>
         </li>
       <% end %>
-    </ul>
-  </div>
-  <div class="new-designer-link">
     <%= link_to "Add New Designer", new_designer_path %>
+    </ul>
   </div>
   <div class="checkboxes field">
   <%= f.label :publishers %>
@@ -37,10 +39,8 @@
           <%= b.check_box %>
         </li>
       <% end %>
-    </ul>
-  </div>
-  <div class="new-publisher-link">
     <%= link_to "Add New Publisher", new_publisher_path %>
+    </ul>
   </div>
   <div class="checkboxes field">
   <%= f.label :artists %>
@@ -51,10 +51,8 @@
           <%= b.check_box %>
         </li>
       <% end %>
-    </ul>
-  </div>
-  <div class="new-artist-link">
     <%= link_to "Add New Artist", new_artist_path %>
+    </ul>
   </div>
   <div class="checkboxes field">
   <%= f.label :categories %>
@@ -65,10 +63,10 @@
           <%= b.check_box %>
         </li>
       <% end %>
+    <%= link_to "Add New Category", new_category_path %>
     </ul>
   </div>
-  <div class="new-category-link">
-    <%= link_to "Add New Category", new_category_path %>
+  <div class="submit-button">
+    <%= f.submit 'Add Board Game' %>
   </div>
-  
 <% end %>
