@@ -13,63 +13,6 @@
         <h3><%= link_to bg.title, bg %></h3>
       </div>
     </td></tr>
-    <tr><td>
-      <div class="bg-avg-rating">
-        <strong>Average Rating: </strong>
-        <%= bg.average_rating.round(2) %>/10
-      </div>
-      <div class="bg-categories">
-        <strong>Categories: </strong>
-        <% bg.categories.each.with_index(1) do |c, i| %>
-          <%=  link_to c.name, c  %><% unless i == bg.categories.size %>, <% end %>
-          <% if i%5 == 0 %>
-            <br />
-          <% end %>
-        <% end %>
-      </div>
-      <div class='bg-players'>
-        <strong>Players: </strong><%= "#{bg.min_players}-#{bg.max_players}" %>
-      </div>
-    </td><td>
-      <div class="bg-playing-time">
-        <strong>Approx. Play Time: </strong><%= "#{bg.min_playing_time}-#{bg.max_playing_time} minutes" %>
-      </div>
-      <div class='bg-age'>
-        <strong>Recommended Age: </strong><%= bg.age_range %>
-      </div>
-      <% if bg.amazon_url %>
-        <div class='bg-amazon-link'>
-          <%= link_to('Buy on Amazon!', bg.amazon_url) %>
-        </div>
-      <% end %>
-    </td><td>
-      <div class="bg-designers">
-        <strong>Designers: </strong>
-        <% bg.designers.each.with_index(1) do |d, i| %>
-          <%=  link_to d.name, d  %><% unless i == bg.designers.size %>, <% end %>
-          <% if i%5 == 0 %>
-            <br />
-          <% end %>
-        <% end %>
-      </div>
-      <div class="bg-artists">
-        <strong>Artists: </strong>
-        <% bg.artists.each.with_index(1) do |a, i| %>
-          <%=  link_to a.name, a  %><% unless i == bg.artists.size %>, <% end %>
-          <% if i%5 == 0 %>
-            <br />
-          <% end %>
-        <% end %>
-      </div>
-      <div class="bg-publishers">
-        <strong>Publishers: </strong>
-        <% bg.publishers.each.with_index(1) do |p, i| %>
-          <%=  link_to p.name, p  %><% unless i == bg.publishers.size %>, <% end %>
-          <% if i%5 == 0 %>
-            <br />
-          <% end %>
-        <% end %>
-      </div>
-      </td></tr>
+    <%= @board_game = bg; render 'display_board_game', board_game: @board_game %>
   <% end %>
 </table>
