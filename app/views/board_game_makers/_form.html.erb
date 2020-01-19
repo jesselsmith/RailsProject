@@ -1,0 +1,6 @@
+<%= form_for @board_game_maker do |f| %>
+  <%= f.hidden_field :type, value: @board_game_maker.type %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
