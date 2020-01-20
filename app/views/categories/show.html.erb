@@ -2,12 +2,14 @@
 <div class="category description">
   <%= @category.description %>
 </div>
+<% unless @category.board_games.empty? %>
 <div class="category info">
   <strong>Average Rating for a <%= @category.name %> Board Game: <%= @category.average_rating %></strong><br />
   <strong>Highest Rated <%= @category.name %> Board Game:</strong>
-    <%= hr = @category.highest_rated; link_to hr.name, board_game_path(hr) %>
-    Rating: <%= hr.average_rating %> /10
+    <%= hr = @category.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
+    <%= "Rating: #{hr.average_rating}/10" %>
 </div>
+<% end %>
 <div class="category buttons">
   <%= button_to "Edit #{@category.name} Category", edit_category_path(@category), method: 'get' %>
   <%= button_to "All #{@category.name} Board Games", category_board_games_path(@category), method: 'get' %>
