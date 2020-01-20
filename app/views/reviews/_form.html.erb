@@ -1,0 +1,13 @@
+<%= form_for [:board_game, @review] do |f| %>
+  <div class='rating field'>
+    <%= f.label :rating, "Rating: " %>
+    <%= f.number_field :rating %>/10
+  </div>
+  <div class="review-text field">
+    <%= f.label :review_text, 'Review Comments: ' %>
+    <%= f.text_area :review_text %>
+  </div>
+  <div class="submit button">
+    <%= f.submit %>
+  </div>
+<% end %>

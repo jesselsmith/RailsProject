@@ -12,11 +12,11 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    @review = @board_game.reviews.build
   end
 
   def create
-    @review = BoardGame.reviews.build(review_params)
+    @review = @board_game.reviews.build(review_params)
     @review.user = current_user
     if @review.save
       redirect_to @review

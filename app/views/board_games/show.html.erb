@@ -3,10 +3,10 @@
   <%= render 'display_board_game', board_game: @board_game %>
   <tr>
     <td>
-      <div class="bg-links">
-        <%= link_to "Edit #{@board_game.title}", edit_board_game_path(@board_game) %>
-        <%= link_to "All Reviews of #{@board_game.title}", board_game_reviews_path(@board_game) %>
-        <%= link_to 'Add a Review', new_board_game_review_path(@board_game) %>
+      <div class="bg-buttons">
+        <%= button_to "Edit #{@board_game.title}", edit_board_game_path(@board_game), method: 'get' %>
+        <%= button_to "All Reviews of #{@board_game.title}", board_game_reviews_path(@board_game), method: 'get' %>
+        <%= button_to 'Add a Review', new_board_game_review_path(@board_game), method: 'get' %>
       </div>
     </td>
   </tr>

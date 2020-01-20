@@ -7,6 +7,9 @@
 </h1>
 <table>
   <% @reviews.each do |r| %>
+    <td>
+      <strong><%= review_subject(r) %></strong>
+    </td>
     <%= @review = r; render 'display_review', review: @review %>
   <% end %>
 </table>

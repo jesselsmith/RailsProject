@@ -1,2 +1,10 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<h1>Review for <%= link_to @review.board_game.title, board_game_path(@review.board_game) %>
+    by <%= link_to @review.user.email, user_path(@review.user) %></h1>
+<table>
+  <%= render 'display_review', review: @review %>
+  <tr>
+    <td>
+      <%= link_to 'Edit Review', edit_board_game_review_path(@review) if @review.user == current_user %>
+    </td>
+  </tr>
+</table>
