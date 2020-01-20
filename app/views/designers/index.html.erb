@@ -1,2 +1,8 @@
-<h1>Designers#index</h1>
-<p>Find me in app/views/designers/index.html.erb</p>
+<h1>Designers</h1>
+<div class="designers list">
+  <ul> 
+    <% @designers.each do |d| %>
+      <li><%= link_to d.name, designer_path(d) %></li>
+    <% end %>
+  </ul>
+</div>

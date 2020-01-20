@@ -1,2 +1,8 @@
-<h1>Publishers#index</h1>
-<p>Find me in app/views/publishers/index.html.erb</p>
+<h1>Publisher</h1>
+<div class="publishers list">
+  <ul> 
+    <% @publishers.each do |pub| %>
+      <li><%= link_to pub.name, publisher_path(pub) %></li>
+    <% end %>
+  </ul>
+</div>
