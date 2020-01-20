@@ -1,2 +1,8 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<h1>Board Game Categories</h1>
+<ul class="category-list">
+ <% @categories.each do |c| %>
+  <li>
+    <%= link_to c.name, category_path(c) %>
+  </li>
+  <% end %>
+</ul>

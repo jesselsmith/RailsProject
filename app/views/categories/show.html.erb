@@ -1,2 +1,13 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%= @category.name %> Board Games</h1>
+<div class="category description">
+  <%= @category.description %>
+</div>
+<div class="category info">
+  <strong>Average Rating for a <%= @category.name %> Board Game: <%= @category.average_rating %></strong><br />
+  <strong>Highest Rated <%= @category.name %> Board Game: <%= hr = @category.highest_rated; link_to hr.name, board_game_path(hr) %>
+
+</div>
+<div class="category buttons">
+  <%= button_to "Edit #{@category.name} Category", edit_category_path(@category), method: 'get' %>
+  <%= button_to "All #{@category.name} Board Games", category_board_games_path(@category), method: 'get' %>
+</div>
