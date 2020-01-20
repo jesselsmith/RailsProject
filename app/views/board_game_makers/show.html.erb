@@ -1,11 +1,11 @@
 <h1><%= @board_game_maker.name %></h1>
 <% unless @board_game_maker.board_games.empty? %>
 <div class="bg-maker info">
-  <strong>Average Rating for a <%= @board_game_maker.name %> Board Game: <%= @board_game_maker.average_rating %></strong><br />
+  <strong>Average Rating for a <%= @board_game_maker.name %> Board Game: <%= @board_game_maker.average_rating.round(2) %></strong><br />
   <strong>Highest Rated <%= @board_game_maker.name %> Board Game:</strong>
     <%= hr = @board_game_maker.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
     <%= "Rating: #{hr.average_rating.round(2)}/10" %>
-</div>
+</div>render 'board_game_makers/show'
 <% end %>
 <div class="bg-maker buttons">
   <%= link_to "All #{@board_game_maker.name} Board Games", bg_maker_path(@board_game_maker, "board_games_path") %>
