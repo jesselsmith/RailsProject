@@ -1,0 +1,2 @@
+class BoardGameMakersController < ApplicationController
+end

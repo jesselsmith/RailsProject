@@ -1,0 +1,16 @@
+<h1><%= @board_game_maker.name %></h1>
+<% unless @board_game_maker.board_games.empty? %>
+<div class="bg-maker info">
+  <strong>Average Rating for a <%= @board_game_maker.name %> Board Game: <%= @board_game_maker.average_rating %></strong><br />
+  <strong>Highest Rated <%= @board_game_maker.name %> Board Game:</strong>
+    <%= hr = @board_game_maker.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
+    <%= "Rating: #{hr.average_rating.round(2)}/10" %>
+</div>
+<% end %>
+<div class="bg-maker buttons">
+  <%= link_to "All #{@board_game_maker.name} Board Games", bg_maker_path(@board_game_maker, "board_games_path") %>
+  <%= link_to "All #{@board_game_maker.name} Reviews", bg_maker_path(@board_game_maker, "reviews_path") %>
+  <%= button_to "Edit #{@board_game_maker.name}", bg_maker_path(@board_game_maker, "path", "edit_"), method: 'get' %>
+  <%= button_to "Delete #{@board_game_maker.name}", bg_maker_path(@board_game_maker, "path"),
+    data: { confirm: "Delete #{@board_game_maker.name} permanently?" }, method: 'delete' %>
+</div>

@@ -6,6 +6,8 @@ class PublishersController < ApplicationController
   end
 
   def show
+    @board_game_maker=find(Publisher)
+    render 'board_game_makers/show'
   end
 
   def new
@@ -22,7 +24,7 @@ class PublishersController < ApplicationController
   end
 
   def edit
-    @board_game_maker = set_publisher
+    @board_game_maker = find(Publisher)
   end
 
   def update
