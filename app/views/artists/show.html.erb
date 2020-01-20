@@ -1,2 +1,14 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h1><%= @artist.name %></h1>
+<% unless @artist.board_games.empty? %>
+<div class="artist info">
+  <strong>Average Rating for a <%= @artist.name %> Board Game: <%= @artist.average_rating %></strong><br />
+  <strong>Highest Rated <%= @artist.name %> Board Game:</strong>
+    <%= hr = @artist.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
+    <%= "Rating: #{hr.average_rating}/10" %>
+</div>
+<% end %>
+<div class="artist buttons">
+  <%= button_to "Edit #{@artist.name}", edit_artist_path(@artist), method: 'get' %>
+  <%= button_to "All #{@artist.name} Board Games", artist_board_games_path(@artist), method: 'get' %>
+  <%= button_to "All #{@artist.name} Reviews", artist_reviews_path(@artist), method: 'get' %>
+</div>

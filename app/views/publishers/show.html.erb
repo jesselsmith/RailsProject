@@ -8,7 +8,7 @@
 </div>
 <% end %>
 <div class="publisher buttons">
-  <%= button_to "Edit #{@publisher.name} Publisher", edit_publisher_path(@publisher), method: 'get' %>
+  <%= button_to "Edit #{@publisher.name}", edit_publisher_path(@publisher), method: 'get' %>
   <%= button_to "All #{@publisher.name} Board Games", publisher_board_games_path(@publisher), method: 'get' %>
   <%= button_to "All #{@publisher.name} Reviews", publisher_reviews_path(@publisher), method: 'get' %>
 </div>
