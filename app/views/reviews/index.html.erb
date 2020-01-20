@@ -1,8 +1,10 @@
 <h1>
   <% if @nested_resource.is_a? BoardGame %>
     Reviews for <%= @nested_resource.title %>
+  <% elsif @nested_resource.is_a? BoardGameMaker %>
+    Reviews for <%= @nested_resource.name %>'s Board Games
   <% else %>
-    <%= nested_resource.email %>'s Reviews
+    <%= @nested_resource.email %>'s Reviews
   <% end %>
 </h1>
 <table>
