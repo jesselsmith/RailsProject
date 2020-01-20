@@ -1,2 +1,14 @@
-<h1>Publishers#show</h1>
-<p>Find me in app/views/publishers/show.html.erb</p>
+<h1><%= @publisher.name %></h1>
+<% unless @publisher.board_games.empty? %>
+<div class="publisher info">
+  <strong>Average Rating for a <%= @publisher.name %> Board Game: <%= @publisher.average_rating %></strong><br />
+  <strong>Highest Rated <%= @publisher.name %> Board Game:</strong>
+    <%= hr = @publisher.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
+    <%= "Rating: #{hr.average_rating}/10" %>
+</div>
+<% end %>
+<div class="publisher buttons">
+  <%= button_to "Edit #{@publisher.name} Publisher", edit_publisher_path(@publisher), method: 'get' %>
+  <%= button_to "All #{@publisher.name} Board Games", publisher_board_games_path(@publisher), method: 'get' %>
+  <%= button_to "All #{@publisher.name} Reviews", publisher_reviews_path(@publisher), method: 'get' %>
+</div>
