@@ -6,7 +6,7 @@ class PublishersController < ApplicationController
   end
 
   def show
-    @board_game_maker=find(Publisher)
+    @board_game_maker = find(Publisher)
     render 'board_game_makers/show'
   end
 

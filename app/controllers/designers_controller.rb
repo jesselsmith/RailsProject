@@ -6,6 +6,8 @@ class DesignersController < ApplicationController
   end
 
   def show
+    @board_game_maker = find(Designer)
+    render 'board_game_makers/show'
   end
 
   def new
@@ -22,7 +24,7 @@ class DesignersController < ApplicationController
   end
 
   def edit
-    @board_game_maker = set_designer
+    @board_game_maker = find(Designer)
   end
 
   def update
