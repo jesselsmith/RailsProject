@@ -4,8 +4,9 @@
 </div>
 <div class="category info">
   <strong>Average Rating for a <%= @category.name %> Board Game: <%= @category.average_rating %></strong><br />
-  <strong>Highest Rated <%= @category.name %> Board Game: <%= hr = @category.highest_rated; link_to hr.name, board_game_path(hr) %>
-
+  <strong>Highest Rated <%= @category.name %> Board Game:</strong>
+    <%= hr = @category.highest_rated; link_to hr.name, board_game_path(hr) %>
+    Rating: <%= hr.average_rating %> /10
 </div>
 <div class="category buttons">
   <%= button_to "Edit #{@category.name} Category", edit_category_path(@category), method: 'get' %>
