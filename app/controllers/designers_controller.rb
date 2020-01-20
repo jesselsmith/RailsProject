@@ -14,7 +14,6 @@ class DesignersController < ApplicationController
 
   def create
     @designer = Designer.new(designer_params)
-    binding.pry
     if @designer.save
       redirect_to @designer
     else
