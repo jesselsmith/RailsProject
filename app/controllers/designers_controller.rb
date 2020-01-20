@@ -1,4 +1,6 @@
 class DesignersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_designer, only: [:show, :create, :update, :destroy]
   def index
     @designers = Designer.all
   end
@@ -21,6 +23,7 @@ class DesignersController < ApplicationController
   end
 
   def edit
+    @board_game_maker = set_designer
   end
 
   def update

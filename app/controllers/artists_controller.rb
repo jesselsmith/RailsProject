@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_artist, only: [:show, :create, :update, :destroy]
   def index
     @artists = Artist.all
   end
@@ -20,6 +22,7 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    @board_game_maker = set_artist
   end
 
   def update

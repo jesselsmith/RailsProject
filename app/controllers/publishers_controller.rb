@@ -1,4 +1,6 @@
 class PublishersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_publisher, only: [:show, :create, :update, :destroy]
   def index
     @publishers = Publisher.all
   end
@@ -20,6 +22,7 @@ class PublishersController < ApplicationController
   end
 
   def edit
+    @board_game_maker = set_publisher
   end
 
   def update
