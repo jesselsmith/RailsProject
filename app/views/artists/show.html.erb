@@ -4,7 +4,7 @@
   <strong>Average Rating for a <%= @artist.name %> Board Game: <%= @artist.average_rating %></strong><br />
   <strong>Highest Rated <%= @artist.name %> Board Game:</strong>
     <%= hr = @artist.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
-    <%= "Rating: #{hr.average_rating}/10" %>
+    <%= "Rating: #{hr.average_rating.round(2)}/10" %>
 </div>
 <% end %>
 <div class="artist buttons">
