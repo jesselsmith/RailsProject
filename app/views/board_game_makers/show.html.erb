@@ -5,7 +5,7 @@
   <strong>Highest Rated <%= @board_game_maker.name %> Board Game:</strong>
     <%= hr = @board_game_maker.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
     <%= "Rating: #{hr.average_rating.round(2)}/10" %>
-</div>render 'board_game_makers/show'
+</div>
 <% end %>
 <div class="bg-maker buttons">
   <%= link_to "All #{@board_game_maker.name} Board Games", bg_maker_path(@board_game_maker, "board_games_path") %>
