@@ -2,7 +2,7 @@ module RatingAverageable
   extend ActiveSupport::Concern
 
   def average_rating
-    reviews.sum(&:rating).fdiv(reviews.size)
+    reviews.sum(&:rating).fdiv(reviews.size) if reviews.size > 0
   end
 
   def sort_board_games_by_average_rating
@@ -29,13 +29,11 @@ module RatingAverageable
     def lowest_rated
       sort_by_average_rating.last
     end
-  end
 
-  private
-
-  def avg_rating_sort(collection)
-    collection.sort do |a, b|
-      b.average_rating <=> a.average_rating
+    def avg_rating_sort(collection)
+      collection.sort do |a, b|
+        (b.average_rating || -1) <=> (a.average_rating || -1)
+      end
     end
-  end
+  end  
 end

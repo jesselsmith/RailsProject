@@ -1,3 +1,12 @@
 <h1>Welcome to Better Board Games!</h1>
-
-<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<div class="top-10 bg-list">
+  <h3>Top 10 Highest Rated Board Games</h3>
+  <ol>
+    <% BoardGame.sort_by_average_rating.first(10).each do |board_game| %>
+      <li><%= link_to board_game.title, board_game_path(board_game) %>
+      <% if board_game.average_rating %>
+        <strong>Avg. Rating:</strong> <%= board_game.average_rating.round(2) %>/10</li>
+      <% end %>
+    <% end %>
+  </ol>
+</div>

@@ -31,7 +31,6 @@ class BoardGamesController < ApplicationController
   end
 
   def update
-    binding.pry
     @board_game.update(board_game_params)
     if @board_game.save
       redirect_to @board_game
