@@ -21,7 +21,7 @@
   <div class="checkboxes field">
   <%= f.label :designers %>
     <ul>
-      <%= f.collection_check_boxes :designers, Designer.all, :id, :name do |b| %>
+      <%= f.collection_check_boxes :designer_ids, Designer.all, :id, :name do |b| %>
         <li>
           <%= b.label %>
           <%= b.check_box %>
@@ -33,7 +33,7 @@
   <div class="checkboxes field">
   <%= f.label :publishers %>
     <ul>
-      <%= f.collection_check_boxes :publishers, Publisher.all, :id, :name do |b| %>
+      <%= f.collection_check_boxes :publisher_ids, Publisher.all, :id, :name do |b| %>
         <li>
           <%= b.label %>
           <%= b.check_box %>
@@ -45,7 +45,7 @@
   <div class="checkboxes field">
   <%= f.label :artists %>
     <ul>
-      <%= f.collection_check_boxes :artists, Artist.all, :id, :name do |b| %>
+      <%= f.collection_check_boxes :artist_ids, Artist.all, :id, :name do |b| %>
         <li>
           <%= b.label %>
           <%= b.check_box %>
@@ -57,7 +57,7 @@
   <div class="checkboxes field">
   <%= f.label :categories %>
     <ul>
-      <%= f.collection_check_boxes :categories, Category.all, :id, :name do |b| %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
         <li>
           <%= b.label %>
           <%= b.check_box %>

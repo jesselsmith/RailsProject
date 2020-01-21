@@ -31,6 +31,7 @@ class BoardGamesController < ApplicationController
   end
 
   def update
+    binding.pry
     @board_game.update(board_game_params)
     if @board_game.save
       redirect_to @board_game
@@ -49,6 +50,7 @@ class BoardGamesController < ApplicationController
   def board_game_params
     params.require(:board_game).permit(:title, :min_players, :max_players,
                                        :min_playing_time, :max_playing_time,
-                                       :age_range, :amazon_url)
+                                       :age_range, :amazon_url, artist_ids: [],
+                                       designer_ids: [], publisher_ids: [], category_ids: [])
   end
 end
