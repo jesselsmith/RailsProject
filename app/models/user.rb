@@ -8,8 +8,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
          :confirmable, :lockable, :trackable
 
-  scope :
-
+  scope :sort_by_account_age, -> { order('created_at') }
+  scope :sort_by_alphabet, -> { order('email') }
+           
   include RatingAverageable
 
   def self.from_omniauth(auth)

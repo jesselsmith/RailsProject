@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'devise/registrations#new'
   end
 
+  get 'users/sort_by_alphabet', to: 'users#index_by_alphabet'
+  get 'users/sort_by_account_age', to: 'users#index_by_account_age'
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:index]
   end

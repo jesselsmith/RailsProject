@@ -1,2 +1,10 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Better Board Games Users</h1>
+<div class="sort-button">
+  <%= button_to "Sort Alphabetically", users_sort_by_alphabet_path, method: :get %>
+  <%= button_to "Sort By Account Age", users_sort_by_account_age_path, method: :get %>
+</div>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.email, user_path(user) %>
+  <% end%>
+</ul>

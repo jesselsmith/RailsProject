@@ -10,5 +10,7 @@ class BoardGame < ApplicationRecord
   has_many :board_game_publishers
   has_many :publishers, through: :board_game_publishers
 
+  scope :with_reviews, -> { joins(:reviews) }
+
   include RatingAverageable
 end
