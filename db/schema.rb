@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_01_17_232233) do
 
   create_table "board_game_artists", force: :cascade do |t|
-    t.integer "board_game_id"
-    t.integer "artist_id"
+    t.integer "board_game_id", null: false
+    t.integer "artist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_01_17_232233) do
   end
 
   create_table "board_game_designers", force: :cascade do |t|
-    t.integer "board_game_id"
-    t.integer "designer_id"
+    t.integer "board_game_id", null: false
+    t.integer "designer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,22 +41,21 @@ ActiveRecord::Schema.define(version: 2020_01_17_232233) do
   end
 
   create_table "board_game_publishers", force: :cascade do |t|
-    t.integer "board_game_id"
-    t.integer "publisher_id"
+    t.integer "board_game_id", null: false
+    t.integer "publisher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "board_games", force: :cascade do |t|
+    t.string "title", null: false
     t.integer "min_players", null: false
     t.integer "max_players", null: false
-    t.string "amazon_url"
     t.integer "min_playing_time", null: false
     t.integer "max_playing_time", null: false
     t.string "age_range", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
   end
 
   create_table "categories", force: :cascade do |t|

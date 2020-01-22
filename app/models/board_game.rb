@@ -32,6 +32,7 @@ class BoardGame < ApplicationRecord
                                  greater_than_or_equal_to: :min_playing_time
                                }
   validates :age_range, presence: true, length: { minimum: 2 }
+  
   scope :with_reviews, -> { joins(:reviews) }
 
   include RatingAverageable

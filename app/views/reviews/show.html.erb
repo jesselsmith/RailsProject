@@ -2,9 +2,12 @@
     by <%= link_to @review.user.email, user_path(@review.user) %></h1>
 <table>
   <%= render 'display_review', review: @review %>
+  <% if @review.user == current_user %>
   <tr>
-    <td>
-      <%= link_to 'Edit Review', edit_board_game_review_path(@review) if @review.user == current_user %>
+    <td class="review manage buttons">
+        <%= button_to 'Edit Review', edit_board_game_review_path(@review), method: :get %>
+        <%= button_to 'Delete Review', destroy_board_game_review_path(@review), method: :delete %>
     </td>
   </tr>
+  <% end %>
 </table>
