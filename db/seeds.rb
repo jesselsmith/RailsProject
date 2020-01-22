@@ -116,7 +116,6 @@ DATA = {
     ['Josh Cappel'],
     ['Christian Hanisch'],
     ['Régis Moulun'],
-    ['Chris Quilliams'],
     ['Tom Thiel'],
     ['Antoine Bauza'],
     ['Miguel Coimbra'],
@@ -128,8 +127,7 @@ DATA = {
     ['Claus Stephan'],
     ['Christof Tisch'],
     ['Cyrille Daujean'],
-    ['Julien Delval'],
-    ['Klemens Franz'], 
+    ['Klemens Franz'],
     ['Stéphane Gantiez'],
     ['Tomáš Kučerovský'],
     ['Filip Murmak']
@@ -170,9 +168,9 @@ end
 
 def add_artists_to_games
   [
-    (1..11).to_a, (12..15).to_a, (16..20).to_a, [21, 22],
-    [(23..29).to_a, 6, 7].flatten, [30, 31], 32, [6, 10],
-    [33, 34, 35], [22, 30]
+    (1..11).to_a, (12..15).to_a, [14, (16..19).to_a].flatten, [20, 21],
+    [(22..28).to_a, 6, 7].flatten, [23, 29], 30, [6, 10],
+    [31, 32, 33], [21, 29]
   ].each.with_index(1) do |array, i|
     BoardGame.find(i).artists << Artist.find(array)
   end
@@ -180,12 +178,12 @@ end
 
 def add_designers_to_games
   10.times do |i|
-    BoardGame.find(i + 1).designers << Designer.find(i + 36)
+    BoardGame.find(i + 1).designers << Designer.find(i + 34)
   end
 end
 
 def add_games_to_publishers
-  [1, [2, 5], [3, 8], 4, [6, 10], 7, 9].each.with_index(46) do |array, i|
+  [1, [2, 5], [3, 8], 4, [6, 10], 7, 9].each.with_index(44) do |array, i|
     Publisher.find(i).board_games << BoardGame.find(array)
   end
 end
