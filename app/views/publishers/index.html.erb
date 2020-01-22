@@ -1,4 +1,7 @@
 <h1>Publisher</h1>
+<div class="publisher new-button">
+    <%= button_to 'Add New Publisher', new_publisher_path, method: :get %>
+</div>
 <div class="publishers list">
   <ul> 
     <% @publishers.each do |pub| %>

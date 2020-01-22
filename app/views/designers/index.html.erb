@@ -1,4 +1,7 @@
 <h1>Designers</h1>
+<div class="designer new-button">
+    <%= button_to 'Add New Designer', new_designer_path, method: :get %>
+</div>
 <div class="designers list">
   <ul> 
     <% @designers.each do |d| %>

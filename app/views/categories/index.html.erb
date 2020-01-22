@@ -1,4 +1,7 @@
 <h1>Board Game Categories</h1>
+<div class="category new-button">
+    <%= button_to 'Add New Category', new_category_path, method: :get %>
+</div>
 <ul class="category-list">
  <% @categories.each do |c| %>
   <li>

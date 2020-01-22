@@ -1,4 +1,7 @@
 <h1>Artists</h1>
+<div class="artist new-button">
+    <%= button_to 'Add New Artist', new_artist_path, method: :get %>
+</div>
 <div class="artists list">
   <ul> 
     <% @artists.each do |a| %>
