@@ -1,3 +1,19 @@
+<% if @board_game_maker.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@board_game_maker.errors.count, "error") %>
+      prohibited this <%= @board_game_maker.class.to_s.downcase %> from being saved:
+    </h2>
+ 
+    <ul>
+    <% @board_game_maker.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @board_game_maker do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

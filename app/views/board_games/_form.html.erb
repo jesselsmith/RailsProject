@@ -1,3 +1,19 @@
+<% if @board_game.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@board_game.errors.count, "error") %>
+      prohibited this board game from being saved:
+    </h2>
+ 
+    <ul>
+    <% @board_game.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @board_game do |f| %>
   <div class="title field">
     <%= f.label :title %>
