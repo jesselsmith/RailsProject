@@ -8,6 +8,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
          :confirmable, :lockable, :trackable
 
+  scope :
+
   include RatingAverageable
 
   def self.from_omniauth(auth)
@@ -20,10 +22,10 @@ class User < ApplicationRecord
   end
 
   def highest_rated_review
-    reviews.order(rating: :desc).limit(1).first
+    reviews.sort_by_rating.limit(1).first
   end
 
   def lowest_rated_review
-    reviews.order(:rating).limit(1).first
+    reviews.sort_by_lowest_rating.limit(1).first
   end
 end

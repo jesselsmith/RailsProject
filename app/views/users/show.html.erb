@@ -4,7 +4,7 @@
   <%= button_to "Delete Your Account", user_registration_path, data: {confirm: "You wish to delete your account?"}, method: :delete %>
   <%= button_to "Your Reviews", user_reviews_path(@user), method: :get %>
 <% elsif !@user.reviews.empty? %>
-  <h3>Highest Rated Board Game Review: <%= r = @user.highest_rated_review; binding.pry; link_to "#{r.board_game.title}  #{r.rating}/10", r %></h3>
+  <h3>Highest Rated Board Game Review: <%= r = @user.highest_rated_review; link_to "#{r.board_game.title}  #{r.rating}/10", r %></h3>
   <h3>Lowest Rated Board Game Review: <%= r = @user.lowest_rated_review; link_to "#{r.board_game.title}  #{r.rating}/10", r %></h3>
   <%= button_to "All Reviews", user_reviews_path(@user), method: :get %>
 <% else  %>
