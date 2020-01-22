@@ -19,11 +19,11 @@ class User < ApplicationRecord
     end
   end
 
-  def highest_rating_review
+  def highest_rated_review
     reviews.order(rating: :desc).limit(1)
   end
 
-  def lowest_rating_review
+  def lowest_rated_review
     reviews.order(:rating).limit(1)
   end
 end
