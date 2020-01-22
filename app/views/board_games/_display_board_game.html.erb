@@ -24,11 +24,6 @@
   <div class='bg-age'>
     <strong>Recommended Age: </strong><%= @board_game.age_range %>
   </div>
-  <% if @board_game.amazon_url %>
-    <div class='bg-amazon-link'>
-      <%= link_to('Buy on Amazon!', @board_game.amazon_url) %>
-    </div>
-  <% end %>
 </td><td>
   <div class="bg-designers">
     <strong>Designers: </strong>
