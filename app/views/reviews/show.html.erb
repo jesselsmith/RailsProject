@@ -6,7 +6,7 @@
   <tr>
     <td class="review manage buttons">
         <%= button_to 'Edit Review', edit_board_game_review_path(@review), method: :get %>
-        <%= button_to 'Delete Review', destroy_board_game_review_path(@review), method: :delete %>
+        <%= button_to 'Delete Review', destroy_board_game_review_path(@review), data: { confirm: "Delete review?" }, method: :delete %>
     </td>
   </tr>
   <% end %>
