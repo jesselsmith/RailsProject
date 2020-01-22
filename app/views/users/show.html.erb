@@ -1,2 +1,10 @@
 <h1><%= @user.email %></h1>
-<% if %>
+<% if @user == current_user %>
+  <%= button_to "Edit Your Account", edit_user_registration_path, method: :get %>
+  <%= button_to "Delete Your Account", cancel_user_registration_path, method: :get %>
+  <%= button_to "Your Reviews", user_reviews_path(@user), method: :get %>
+<% else %>
+  Highest Rated Board Game Review: <%= r = @user.highest_rated_review; link_to "#{r.board_game.title}  #{r.rating}/10", r %>
+  Lowest Rated Board Game Review: <%= r = @user.lowest_rated_review; link_to "#{r.board_game.title}  #{r.rating}/10", r %>
+  <%= button_to "All Reviews", user_reviews_path(@user), method: :get %>
+<% end %>

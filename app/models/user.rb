@@ -18,4 +18,12 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  def highest_rating_review
+    reviews.order(rating: :desc).limit(1)
+  end
+
+  def lowest_rating_review
+    reviews.order(:rating).limit(1)
+  end
 end

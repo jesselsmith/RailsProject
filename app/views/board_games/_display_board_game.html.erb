@@ -1,8 +1,10 @@
 <tr><td>
+  <% if @board_game.average_rating %>
   <div class="bg-avg-rating">
     <strong>Average Rating: </strong>
     <%= @board_game.average_rating.round(2) %>/10
   </div>
+  <% end %>
   <div class="bg-categories">
     <strong>Categories: </strong>
     <% @board_game.categories.each.with_index(1) do |c, i| %>
