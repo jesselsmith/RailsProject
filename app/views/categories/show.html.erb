@@ -4,7 +4,7 @@
 </div>
 <% unless @category.board_games.empty? %>
 <div class="category info">
-  <strong>Average Rating for a <%= @category.name %> Board Game: <%= @category.average_rating %></strong><br />
+  <strong>Average Rating for a <%= @category.name %> Board Game: <%= @category.average_rating.round(2) %></strong><br />
   <strong>Highest Rated <%= @category.name %> Board Game:</strong>
     <%= hr = @category.highest_rated_board_game; link_to hr.title, board_game_path(hr) %>
     <%= "Rating: #{hr.average_rating.round(2)}/10" %>

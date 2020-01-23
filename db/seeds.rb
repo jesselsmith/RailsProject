@@ -94,7 +94,12 @@ DATA = {
     ['Sports'],
     ['Electronic'],
     ['Deduction'],
-    ['Role Playing']
+    ['Role Playing'],
+    ['Family'],
+    ['Tile Placement'],
+    ['Meeple'],
+    ['Negotiation'],
+    ['Word']
   ],
   artists_keys: ['name'],
   artists: [
@@ -161,7 +166,7 @@ DATA = {
 def add_review_seeds
   5.times do |i|
     10.times do |j|
-      DATA[:reviews] << [rand(3..9), '', i + 6, j + 1]
+      DATA[:reviews] << [rand(4..10), '', i + 6, j + 1]
     end
   end
 end
@@ -194,6 +199,23 @@ def add_game_makers_to_games
   add_games_to_publishers
 end
 
+def add_categories_to_games
+  [
+    [1, 7, 8, 17, 22, 25],
+    [17, 22, 23, 24, 13],
+    [1, 7, 14, 16, 22],
+    [1, 7, 13, 17, 22],
+    [1, 6, 7, 17],
+    [7, 13, 17, 22],
+    [1, 7, 17, 24],
+    [1, 17],
+    [2, 7, 20, 26],
+    [1, 8, 12, 17]
+  ].each.with_index(1) do |array, i|
+    BoardGame.find(i).categories << Category.find(array)
+  end
+end
+
 def maker(class_object)
   symbol = class_object.to_s.pluralize.underscore.to_sym
   DATA[symbol].each do |object_attributes|
@@ -215,6 +237,7 @@ def make_all_seeds
   maker(Designer)
   maker(Publisher)
   add_game_makers_to_games
+  add_categories_to_games
 end
 
 make_all_seeds
