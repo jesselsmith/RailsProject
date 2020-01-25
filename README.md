@@ -13,7 +13,7 @@ $ bundle install
 If you'd like to see how Better Board Gaming works without having to create all your own info, run the following command:
 
 ```
-rails db:seed
+$ rails db:seed
 ```
 
 This will add a number of sample board games, users, categories, reviews, designers, publishers, and artists.
@@ -21,7 +21,7 @@ This will add a number of sample board games, users, categories, reviews, design
 To open up a local version of Better Board Gaming, run this command in your terminal:
 
 ```
-rails s
+$ rails s
 ```
 
 Finally, use a web browser to navigate to [http://localhost:3000](http://localhost:3000)
