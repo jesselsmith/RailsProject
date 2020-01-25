@@ -33,7 +33,7 @@ If you notice a problem with the project that you believe needs improvement but 
 ## Submitting a Pull Request to Suggest an Improvement
 If you see an opportunity for improvement and can make the change yourself go ahead and use a typical git workflow to make it happen:
 
-* Fork this curriculum repository
+* Fork this repository
 * Make the change on your fork, with descriptive commits in standard format
 * Open a Pull Request against this repo
 I will review the changes and approve or comment on them in due course.
