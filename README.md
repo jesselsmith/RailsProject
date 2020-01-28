@@ -18,6 +18,21 @@ $ rails db:seed
 
 This will add a number of sample board games, users, categories, reviews, designers, publishers, and artists.
 
+To be able to login with GitHub, you will have to add an OAuth App to your profile, and get a key and secret to add to the project. If you're unsure how to do this, follow these steps:
+
+1. Login to GitHub
+2. Click on your profile icon in the upper right corner, and navigate to "Settings"
+3. On the Settings page, click on the link for "Developer Settings" at the bottom of the left hand side.
+4. In Developer Settings, click on OAuth Apps on the left side, second option down.
+5. In OAuth Apps, click on the "New OAuth App" button on the upper right.
+6. Add an Application name: "BetterBoardGaming"
+7. Add a homepage URL: "http://localhost:3000" if you're hosting locally
+8. Add a Authorization callback URL: add '/users/auth/github/callback' to the end of the homepage url, 'http://localhost:3000/users/auth/github/callback' if hosting locally.
+9. Click 'Register Application'
+10. Create a .env file in the base directory of the project
+11. In the .env file, add 2 lines: 'GITHUB_KEY="#{your Client ID from GitHub}"' and  'GITHUB_SECRET="#{your Client Secret from GitHub}"'
+12. Done!
+
 To open up a local version of Better Board Gaming, run this command in your terminal:
 
 ```
